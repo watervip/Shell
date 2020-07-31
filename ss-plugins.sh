@@ -5,7 +5,7 @@ export PATH
 
 # shell version
 # ====================
-SHELL_VERSION="2.6.2"
+SHELL_VERSION="2.6.6"
 # ====================
 
 
@@ -38,33 +38,23 @@ SHADOWSOCKS_CONFIG="/etc/shadowsocks/config.json"
 SHADOWSOCKS_LIBEV_INSTALL_PATH="/usr/local/bin"
 SHADOWSOCKS_LIBEV_BIN_PATH="/usr/local/bin/ss-server"
 SHADOWSOCKS_LIBEV_INIT="/etc/init.d/shadowsocks-libev"
-SHADOWSOCKS_LIBEV_CENTOS="${BASE_URL}/service/shadowsocks-libev_centos.sh"
-SHADOWSOCKS_LIBEV_DEBIAN="${BASE_URL}/service/shadowsocks-libev_debian.sh"
+SHADOWSOCKS_LIBEV_INIT_LOCAL="./service/shadowsocks-libev.sh"
+SHADOWSOCKS_LIBEV_INIT_ONLINE="${BASE_URL}/service/shadowsocks-libev.sh"
 
 # shadowsocks-rust config and init
 SHADOWSOCKS_RUST_INSTALL_PATH="/usr/local/bin"
 SHADOWSOCKS_RUST_BIN_PATH="/usr/local/bin/ssserver"
 SHADOWSOCKS_RUST_INIT="/etc/init.d/shadowsocks-rust"
-SHADOWSOCKS_RUST_CENTOS="${BASE_URL}/service/shadowsocks-rust_centos.sh"
-SHADOWSOCKS_RUST_DEBIAN="${BASE_URL}/service/shadowsocks-rust_debian.sh"
+SHADOWSOCKS_RUST_INIT_LOCAL="./service/shadowsocks-rust.sh"
+SHADOWSOCKS_RUST_INIT_ONLINE="${BASE_URL}/service/shadowsocks-rust.sh"
 
 # go-shadowsocks2 config and init
 GO_SHADOWSOCKS2_INSTALL_PATH="/usr/local/bin"
 GO_SHADOWSOCKS2_BIN_PATH="/usr/local/bin/go-shadowsocks2"
 GO_SHADOWSOCKS2_INIT="/etc/init.d/go-shadowsocks2"
-GO_SHADOWSOCKS2_CENTOS="${BASE_URL}/service/go-shadowsocks2_centos.sh"
-GO_SHADOWSOCKS2_DEBIAN="${BASE_URL}/service/go-shadowsocks2_debian.sh"
-GO_SHADOWSOCKS2_VERSION_FILE="/etc/shadowsocks/go-shadowsocks2.version"
-
-
-# shadowsocks-libev dependencies
-LIBSODIUM_VERSION="1.0.18"
-LIBSODIUM_FILE="libsodium-${LIBSODIUM_VERSION}"
-LIBSODIUM_URL="https://github.com/jedisct1/libsodium/releases/download/${LIBSODIUM_VERSION}-RELEASE/libsodium-${LIBSODIUM_VERSION}.tar.gz"
-
-MBEDTLS_VERSION="2.16.6"
-MBEDTLS_FILE="mbedtls-${MBEDTLS_VERSION}"
-MBEDTLS_URL="https://tls.mbed.org/download/mbedtls-${MBEDTLS_VERSION}-gpl.tgz"
+GO_SHADOWSOCKS2_INIT_LOCAL="./service/go-shadowsocks2.sh"
+GO_SHADOWSOCKS2_INIT_ONLINE="${BASE_URL}/service/go-shadowsocks2.sh"
+GO_SHADOWSOCKS2_VERSION_FILE="/etc/shadowsocks/go-shadowsocks2.v"
 
 
 # v2ray-plugin
@@ -77,8 +67,8 @@ KCPTUN_INSTALL_PATH="/usr/local/kcptun"
 KCPTUN_BIN_PATH="/usr/local/kcptun/kcptun-server"
 KCPTUN_INIT="/etc/init.d/kcptun"
 KCPTUN_CONFIG="/etc/kcptun/config.json"
-KCPTUN_CENTOS="${BASE_URL}/service/kcptun_centos.sh"
-KCPTUN_DEBIAN="${BASE_URL}/service/kcptun_debian.sh"
+KCPTUN_INIT_LOCAL="./service/kcptun.sh"
+KCPTUN_INIT_ONLINE="${BASE_URL}/service/kcptun.sh"
 
 
 # simple-obfs
@@ -96,15 +86,15 @@ CLOAK_INSTALL_PATH="/usr/local/bin"
 CLOAK_SERVER_BIN_PATH="/usr/local/bin/ck-server"
 CLOAK_CLIENT_BIN_PATH="/usr/local/bin/ck-client"
 CLOAK_INIT="/etc/init.d/cloak"
-CLOAK_CENTOS="${BASE_URL}/service/cloak_centos.sh"
-CLOAK_DEBIAN="${BASE_URL}/service/cloak_debian.sh"
+CLOAK_INIT_LOCAL="./service/cloak.sh"
+CLOAK_INIT_ONLINE="${BASE_URL}/service/cloak.sh"
 CK_DB_PATH="/etc/cloak"
 CK_CLIENT_CONFIG="/etc/cloak/ckclient.json"
 CK_SERVER_CONFIG="/etc/cloak/ckserver.json"
 
 
 # mos-tls-tunnel
-MTT_VERSION_FILE="/etc/shadowsocks/mtt.version"
+MTT_VERSION_FILE="/etc/shadowsocks/mtt.v"
 MTT_INSTALL_PATH="/usr/local/bin"
 MTT_BIN_PATH="/usr/local/bin/mtt-server"
 
@@ -114,27 +104,27 @@ RABBIT_INSTALL_PATH="/usr/local/bin"
 RABBIT_BIN_PATH="/usr/local/bin/rabbit-tcp"
 RABBIT_INIT="/etc/init.d/rabbit-tcp"
 RABBIT_CONFIG="/etc/rabbit-tcp/config.json"
-RABBIT_VERSION_FILE="/etc/rabbit-tcp/rabbit-tcp.version"
-RABBIT_CENTOS="${BASE_URL}/service/rabbit-tcp_centos.sh"
-RABBIT_DEBIAN="${BASE_URL}/service/rabbit-tcp_debian.sh"
+RABBIT_VERSION_FILE="/etc/rabbit-tcp/rabbit-tcp.v"
+RABBIT_INIT_LOCAL="./service/rabbit-tcp.sh"
+RABBIT_INIT_ONLINE="${BASE_URL}/service/rabbit-tcp.sh"
 
 
 # simple-tls
 SIMPLE_TLS_INSTALL_PATH="/usr/local/bin"
 SIMPLE_TLS_BIN_PATH="/usr/local/bin/simple-tls"
-SIMPLE_TLS_VERSION_FILE="/etc/shadowsocks/simple-tls.version"
+SIMPLE_TLS_VERSION_FILE="/etc/shadowsocks/simple-tls.v"
 
 
 # caddy
 CADDY_INSTALL_PATH="/usr/local/caddy"
 CADDY_BIN_PATH="/usr/local/caddy/caddy"
 CADDY_CONF_FILE="/usr/local/caddy/Caddyfile"
-CADDY_BASE_URL="https://caddyserver.com/download/linux/amd64"
+CADDY_VERSION_FILE="/usr/local/caddy/caddy.v"
 CADDY_INIT="/etc/init.d/caddy"
-ONLINE_CADDY_CENTOS_INIT_URL="${BASE_URL}/service/caddy_centos.sh"
-LOCAL_CADDY_DEBIAN_INIT_PATH="./service/caddy_centos.sh"
-ONLINE_CADDY_DEBIAN_INIT_URL="${BASE_URL}/service/caddy_debian.sh"
-LOCAL_CADDY_DEBIAN_INIT_PATH="./service/caddy_debian.sh"
+CADDY_INIT_LOCAL="./service/caddy.sh"
+CADDY_INIT_ONLINE="${BASE_URL}/service/caddy.sh"
+CADDY_V2_INIT_LOCAL="./service/caddy2.sh"
+CADDY_V2_INIT_ONLINE="${BASE_URL}/service/caddy2.sh"
 
 
 # nginx
@@ -167,29 +157,29 @@ Separator_1="——————————————————————�
 
 usage() {
 	cat >&1 <<-EOF
-Usage: 
-  ./ss-plugins.sh [options...] [args...]
-    
-Available Options:
-  install          安装
-  uninstall        卸载
-  update           升级
-  start            启动
-  stop             关闭
-  restart          重启
-  status           查看状态
-  script           升级脚本
-  show             显示可视化配置
-  log              查看日志文件
-  cert             手动申请Cloudflare CDN证书(仅 .cf .ga .gq .ml .tk，有效期90天)
-  uid              为cloak添加一个新的uid用户(仅 Cloak)
-  link             用新添加的uid生成一个新的SS://链接(仅 Cloak)
-  scan             用ss://链接在当前终端上生成一个可供扫描的二维码
-  help             打印帮助信息并退出
+	Usage:
+	  ./ss-plugins.sh [options...] [args...]
+
+	Available Options:
+	  install          安装
+	  uninstall        卸载
+	  update           升级
+	  start            启动
+	  stop             关闭
+	  restart          重启
+	  status           查看状态
+	  script           升级脚本
+	  show             可视化配置
+	  log              查看日志文件
+	  uid              添加一个新的uid用户(Cloak)
+	  cert             为.cf .ga .gq .ml .tk申请证书(90天)
+	  link             用新添加的uid生成一个新的SS://链接(Cloak)
+	  scan             用ss://链接在当前终端上生成一个可供扫描的二维码
+	  help             打印帮助信息并退出
 
 	EOF
 
-    exit $1
+	exit $1
 }
 
 menu_status(){
@@ -616,212 +606,64 @@ config_ss(){
         mkdir -p $(dirname ${SHADOWSOCKS_CONFIG})
     fi
 
-    # start wriet config
-    improt_package "templates" "config_file_templates.sh"
-
-    # Only SS
-    if [[ ${plugin_num} == "" ]]; then
-        ss_config_standalone
-    fi
-
-    # SS + V2ray-plugin
     if [[ ${plugin_num} == "1" ]]; then
-        if [[ ${libev_v2ray} == "1" ]]; then
-           ss_v2ray_ws_http_config
-        elif [[ ${libev_v2ray} == "2" ]]; then    
-           ss_v2ray_ws_tls_cdn_config
-        elif [[ ${libev_v2ray} == "3" ]]; then
-            ss_v2ray_quic_tls_cdn_config
-        elif [[ ${libev_v2ray} == "4" ]]; then
-            ss_v2ray_ws_tls_web_config
-            if [[ ${web_flag} = "1" ]]; then
-                caddy_config
-            elif [[ ${web_flag} = "2" ]]; then
-                mirror_domain=$(echo ${mirror_site} | sed 's/https:\/\///g')
-                nginx_config
-            fi 
-        elif [[ ${libev_v2ray} == "5" ]]; then
-            ss_v2ray_ws_tls_web_cdn_config
-            if [[ ${web_flag} = "1" ]]; then
-                caddy_config
-            elif [[ ${web_flag} = "2" ]]; then
-                mirror_domain=$(echo ${mirror_site} | sed 's/https:\/\///g')
-                nginx_config
-            fi 
-        fi
-        # disable mux
-        if [[ ${isDisable} == disable ]] && [[ ${libev_v2ray} != "3" ]]; then
-            sed 's/"plugin_opts":"/"plugin_opts":"mux=0;/' -i ${SHADOWSOCKS_CONFIG}
-        fi
-    fi
-
-    # SS + KcpTun
-    if [[ ${plugin_num} == "2" ]]; then
-        if [ ! -d "$(dirname ${KCPTUN_CONFIG})" ]; then
-            mkdir -p $(dirname ${KCPTUN_CONFIG})
-        fi
-        ss_config_standalone
-        kcptun_config_standalone
-    fi
-
-    # SS + Simple-obfs
-    if [[ ${plugin_num} == "3" ]]; then
-        if [[ ${libev_obfs} == "1" ]]; then
-           ss_obfs_http_config
-        elif [[ ${libev_obfs} == "2" ]]; then    
-           ss_obfs_tls_config
-        fi
-    fi
-
-    # SS + Goquite
-    if [[ ${plugin_num} == "4" ]]; then
+        improt_package "templates/config" "v2ray_plugin_config.sh"
+        config_ss_v2ray_plugin
+    elif [[ ${plugin_num} == "2" ]]; then
+        improt_package "templates/config" "kcptun_config.sh"
+        config_ss_kcptun
+    elif [[ ${plugin_num} == "3" ]]; then
+        improt_package "templates/config" "simple_obfs_config.sh"
+        config_ss_simple_obfs
+    elif [[ ${plugin_num} == "4" ]]; then
+        improt_package "templates/config" "goquiet_config.sh"
         ss_goquiet_config
-    fi
-
-    # SS + Cloak
-    if [[ ${plugin_num} == "5" ]]; then
-        if [ ! -d "$(dirname ${CK_SERVER_CONFIG})" ]; then
-            mkdir -p $(dirname ${CK_SERVER_CONFIG})
-        fi
+    elif [[ ${plugin_num} == "5" ]]; then
+        improt_package "templates/config" "cloak_config.sh"
+        config_ss_cloak
+    elif [[ ${plugin_num} == "6" ]]; then
+        improt_package "templates/config" "mos_tls_tunnel_config.sh"
+        config_ss_mos_tls_tunnel
+    elif [[ ${plugin_num} == "7" ]]; then
+        improt_package "templates/config" "rabbit_tcp_config.sh"
+        config_ss_rabbit_tcp
+    elif [[ ${plugin_num} == "8" ]]; then
+        improt_package "templates/config" "simple_tls_config.sh"
+        config_ss_simple_tls
+    else
+        improt_package "templates/config" "ss_original_config.sh"
         ss_config_standalone
-        cloak2_server_config
-        cloak2_client_config
-    fi
-
-    # SS + Mos-tls-tunnel
-    if [[ ${plugin_num} == "6" ]]; then
-        if [[ ${libev_mtt} == "1" ]]; then
-            if [[ ${domainType} = DNS-Only ]]; then
-                ss_mtt_tls_dns_only_config
-            else
-                ss_mtt_tls_config
-            fi
-        elif [[ ${libev_mtt} == "2" ]]; then
-            if [[ ${isEnableWeb} = disable ]]; then
-                ss_mtt_wss_dns_only_or_cdn_config
-            elif [[ ${isEnableWeb} = enable ]]; then
-                ss_mtt_wss_dns_only_or_cdn_web_config
-                domain=${serverName}
-                path=${wssPath}
-                if [[ ${web_flag} = "1" ]]; then
-                    caddy_config
-                elif [[ ${web_flag} = "2" ]]; then
-                    mirror_domain=$(echo ${mirror_site} | sed 's/https:\/\///g')
-                    nginx_config
-                fi 
-            else
-                ss_mtt_wss_config
-            fi
-        fi
-        
-        if [[ ${isEnable} == enable ]]; then
-            sed 's/"plugin_opts":"/"plugin_opts":"mux;/' -i ${SHADOWSOCKS_CONFIG}
-        fi
-    fi
-
-    # SS + Rabbit-tcp
-    if [[ ${plugin_num} == "7" ]]; then
-        if [ ! -d "$(dirname ${RABBIT_CONFIG})" ]; then
-            mkdir -p $(dirname ${RABBIT_CONFIG})
-        fi
-        ss_config_standalone
-        rabbit_tcp_config_standalone
-    fi
-
-    # SS + Simple-tls
-    if [[ ${plugin_num} == "8" ]]; then
-        if [[ ${libev_simple_tls} == "1" ]]; then
-            ss_simple_tls_config
-        elif [[ ${libev_simple_tls} == "2" ]]; then
-            ss_simple_tls_wss_config
-        fi
-
-        if [[ ${SimpleTlsVer} = "1" ]] && [[ ${isEnable} == enable ]]; then
-            sed 's/"plugin_opts":"s/"plugin_opts":"s;rh/' -i ${SHADOWSOCKS_CONFIG}
-        elif [[ ${SimpleTlsVer} = "2" ]] && [[ ${isEnable} == enable ]]; then
-            sed 's/"plugin_opts":"s/"plugin_opts":"s;pd/' -i ${SHADOWSOCKS_CONFIG}
-        fi
     fi
 }
 
 gen_ss_links(){
-    improt_package "templates" "sip002_url_templates.sh"
-
-    # Only SS
-    if [[ ${plugin_num} == "" ]]; then
-        ss_link
-    fi
-
-    # SS + V2ray-plugin
     if [[ ${plugin_num} == "1" ]]; then
-        if [[ ${libev_v2ray} == "1" ]]; then
-            ss_v2ray_ws_http_link
-        elif [[ ${libev_v2ray} == "2" ]]; then
-            ss_v2ray_ws_tls_cdn_link
-        elif [[ ${libev_v2ray} == "3" ]]; then
-            ss_v2ray_quic_tls_cdn_link
-        elif [[ ${libev_v2ray} == "4" ]]; then
-            ss_v2ray_ws_tls_web_link
-        elif [[ ${libev_v2ray} == "5" ]]; then
-            ss_v2ray_ws_tls_web_cdn_link
-        fi
-    fi
-
-    # SS + KcpTun
-    if [[ ${plugin_num} == "2" ]]; then
+        improt_package "templates/links" "v2ray_plugin_link.sh"
+        gen_ss_v2ray_plugin_link
+    elif [[ ${plugin_num} == "2" ]]; then
+        improt_package "templates/links" "kcptun_link.sh"
         ss_kcptun_link
-    fi
-
-    # SS + Simple-obfs
-    if [[ ${plugin_num} == "3" ]]; then
-        if [[ ${libev_obfs} == "1" ]]; then
-           ss_obfs_http_link
-        elif [[ ${libev_obfs} == "2" ]]; then    
-           ss_obfs_tls_link
-        fi
-    fi
-
-    # SS + Goquite
-    if [[ ${plugin_num} == "4" ]]; then
+    elif [[ ${plugin_num} == "3" ]]; then
+        improt_package "templates/links" "simple_obfs_link.sh"
+        gen_ss_simple_obfs_link
+    elif [[ ${plugin_num} == "4" ]]; then
+        improt_package "templates/links" "goquiet_link.sh"
         ss_goquiet_link
-    fi
-
-    # SS + Cloak
-    if [[ ${plugin_num} == "5" ]]; then
+    elif [[ ${plugin_num} == "5" ]]; then
+        improt_package "templates/links" "cloak_link.sh"
         ss_cloak_link_new
-    fi
-
-    # SS + Mos-tls-tunnel
-    if [[ ${plugin_num} == "6" ]]; then
-        if [[ ${libev_mtt} == "1" ]]; then
-            if [[ ${domainType} = DNS-Only ]]; then
-                ss_mtt_tls_dns_only_link
-            else
-                ss_mtt_tls_link
-            fi
-        elif [[ ${libev_mtt} == "2" ]]; then
-            if [[ ${isEnableWeb} = disable ]]; then
-                ss_mtt_wss_dns_only_or_cdn_link
-            elif [[ ${isEnableWeb} = enable ]]; then
-                ss_mtt_wss_dns_only_or_cdn_web_link
-            else
-                ss_mtt_wss_link
-            fi
-        fi
-    fi
-
-    # SS + Rabbit-tcp
-    if [[ ${plugin_num} == "7" ]]; then
+    elif [[ ${plugin_num} == "6" ]]; then
+        improt_package "templates/links" "mos_tls_tunnel_link.sh"
+        gen_ss_mos_tls_tunnel_link
+    elif [[ ${plugin_num} == "7" ]]; then
+        improt_package "templates/links" "rabbit_tcp_link.sh"
         ss_rabbit_tcp_link
-    fi
-
-    # SS + Simple-tls
-    if [[ ${plugin_num} == "8" ]]; then
-        if [[ ${libev_simple_tls} == "1" ]]; then
-            ss_simple_tls_link
-        elif [[ ${libev_simple_tls} == "2" ]]; then
-            ss_simple_tls_wss_link
-        fi
+    elif [[ ${plugin_num} == "8" ]]; then
+        improt_package "templates/links" "simple_tls_link.sh"
+        gen_ss_simple_tls_link
+    else
+        improt_package "templates/links" "ss_original_link.sh"
+        ss_link
     fi
 }
 
@@ -834,105 +676,34 @@ install_completed(){
     elif [[ ${SS_VERSION} = "go-ss2" ]]; then
         ${GO_SHADOWSOCKS2_INIT} start > /dev/null 2>&1
     fi
-    
-    clear -x
-    
-    improt_package "templates" "terminal_config_templates.sh"
 
-    # Only SS
-    if [[ ${plugin_num} == "" ]]; then
-        ss_show
-    fi
-
-    # SS + V2ray-plugin
     if [[ ${plugin_num} == "1" ]]; then
-        if [[ ${libev_v2ray} == "1" ]]; then
-            ss_v2ray_ws_http_show
-        elif [[ ${libev_v2ray} == "2" ]]; then
-            ss_v2ray_ws_tls_cdn_show
-        elif [[ ${libev_v2ray} == "3" ]]; then
-            ss_v2ray_quic_tls_cdn_show
-        elif [[ ${libev_v2ray} == "4" ]]; then
-            if [[ ${web_flag} = "1" ]]; then
-                # start caddy
-                /etc/init.d/caddy start > /dev/null 2>&1
-            elif [[ ${web_flag} = "2" ]]; then
-                systemctl start nginx
-            fi 
-            ss_v2ray_ws_tls_web_show
-        elif [[ ${libev_v2ray} == "5" ]]; then
-            if [[ ${web_flag} = "1" ]]; then
-                /etc/init.d/caddy start > /dev/null 2>&1
-            elif [[ ${web_flag} = "2" ]]; then
-                systemctl start nginx
-            fi 
-            ss_v2ray_ws_tls_web_cdn_show
-        fi
-    fi
-
-    if [[ ${plugin_num} == "2" ]]; then
-        ${KCPTUN_INIT} start  > /dev/null 2>&1
-        ss_kcptun_show
-    fi
-
-    # SS + Simple-obfs
-    if [[ ${plugin_num} == "3" ]]; then
-        if [[ ${libev_obfs} == "1" ]]; then
-           ss_obfs_http_show
-        elif [[ ${libev_obfs} == "2" ]]; then    
-           ss_obfs_tls_show
-        fi
-    fi
-
-    # SS + Goquite
-    if [[ ${plugin_num} == "4" ]]; then
+        improt_package "templates/visible" "v2ray_plugin_visible.sh"
+        ss_v2ray_plugin_visible
+    elif [[ ${plugin_num} == "2" ]]; then
+        improt_package "templates/visible" "kcptun_visible.sh"
+        ss_kcptun_visible
+    elif [[ ${plugin_num} == "3" ]]; then
+        improt_package "templates/visible" "simple_obfs_visible.sh"
+        ss_simple_obfs_visible
+    elif [[ ${plugin_num} == "4" ]]; then
+        improt_package "templates/visible" "goquiet_visible.sh"
         ss_goquiet_show
-    fi
-
-    # SS + Cloak
-    if [[ ${plugin_num} == "5" ]]; then
-        ${CLOAK_INIT} start  > /dev/null 2>&1
-        ss_cloak_show_new
-    fi
-
-    # SS + Mos-tls-tunnel
-    if [[ ${plugin_num} == "6" ]]; then
-        if [[ ${libev_mtt} == "1" ]]; then
-            if [[ ${domainType} = DNS-Only ]]; then
-                ss_mtt_tls_dns_only_show
-            else
-                ss_mtt_tls_show
-            fi
-        elif [[ ${libev_mtt} == "2" ]]; then
-            if [[ ${isEnableWeb} = disable ]]; then
-                ss_mtt_wss_dns_only_or_cdn_show
-            elif [[ ${isEnableWeb} = enable ]]; then
-                if [[ ${web_flag} = "1" ]]; then
-                    # start caddy
-                    /etc/init.d/caddy start > /dev/null 2>&1
-                elif [[ ${web_flag} = "2" ]]; then
-                    systemctl start nginx
-                fi 
-                ss_mtt_wss_dns_only_or_cdn_web_show
-            else
-                ss_mtt_wss_show
-            fi
-        fi
-    fi
-
-    # SS + Rabbit-tcp
-    if [[ ${plugin_num} == "7" ]]; then
-        ${RABBIT_INIT} start  > /dev/null 2>&1
-        ss_rabbit_tcp_show
-    fi
-
-    # SS + Simple-tls
-    if [[ ${plugin_num} == "8" ]]; then
-        if [[ ${libev_simple_tls} == "1" ]]; then
-            ss_simple_tls_show
-        elif [[ ${libev_simple_tls} == "2" ]]; then
-            ss_simple_tls_wss_show
-        fi
+    elif [[ ${plugin_num} == "5" ]]; then
+        improt_package "templates/visible" "cloak_visible.sh"
+        ss_cloak_visible
+    elif [[ ${plugin_num} == "6" ]]; then
+        improt_package "templates/visible" "mos_tls_tunnel_visible.sh"
+        ss_mos_tls_tunnel_visible
+    elif [[ ${plugin_num} == "7" ]]; then
+        improt_package "templates/visible" "rabbit_tcp_visible.sh"
+        ss_rabbit_tcp_visible
+    elif [[ ${plugin_num} == "8" ]]; then
+        improt_package "templates/visible" "simple_tls_visible.sh"
+        ss_simple_tls_visible
+    else
+        improt_package "templates/visible" "ss_original_visible.sh"
+        ss_show
     fi
 }
 
@@ -947,8 +718,8 @@ install_prepare(){
   ${Green}1.${suffix} v2ray-plugin
   ${Green}2.${suffix} kcptun
   ${Green}3.${suffix} simple-obfs
-  ${Green}4.${suffix} goquiet (unofficial)
-  ${Green}5.${suffix} cloak (based goquiet)
+  ${Green}4.${suffix} goquiet
+  ${Green}5.${suffix} cloak
   ${Green}6.${suffix} mos-tls-tunnel
   ${Green}7.${suffix} rabbit-tcp
   ${Green}8.${suffix} simple-tls
@@ -1104,15 +875,14 @@ install_step_all(){
     config_ss
     gen_ss_links
     install_completed
-    improt_package "utils" "view_config.sh"
-    show_config "all"
+    do_show
 }
 
 install_cleanup(){
     cd ${CUR_DIR}
     # ss-libev
     rm -rf ${LIBSODIUM_FILE} ${LIBSODIUM_FILE}.tar.gz
-    rm -rf ${MBEDTLS_FILE} ${MBEDTLS_FILE}-gpl.tgz
+    rm -rf ${MBEDTLS_FILE} ${MBEDTLS_FILE}.tar.gz
     rm -rf ${shadowsocks_libev_file} ${shadowsocks_libev_file}.tar.gz
     
     # ss-rust
@@ -1137,7 +907,7 @@ install_cleanup(){
     rm -rf ${mtt_file}.zip LICENSE README.md mtt-client
 
     #simple-tls
-    rm -rf ${simple_tls_file}.zip LICENSE  README.md
+    rm -rf ${simple_tls_file}.zip LICENSE  README.md README_zh.md
 }
 
 do_uid(){
@@ -1175,8 +945,16 @@ do_scan(){
 }
 
 do_show(){
-    improt_package "utils" "view_config.sh"
-    show_config "standalone"
+    local mark=$1
+
+    if [ -e $HUMAN_CONFIG ]; then
+        if [[ ${mark} == "cleanScreen" ]]; then
+            clear -x
+        fi
+        cat $HUMAN_CONFIG
+    else
+        echo "The visible config not found."
+    fi
 }
 
 do_log(){
@@ -1351,7 +1129,7 @@ case ${action} in
         do_${action}  "${2}"
         ;;
     show)
-        do_${action}
+        do_${action} "cleanScreen"
         ;;
     log)
         do_${action}
